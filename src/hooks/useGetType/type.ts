@@ -1,10 +1,10 @@
 // perguntar se está correto
 
 export type TPokemonList = {
-  pokemons?: Array<TPokemonType>;
+  pokemons: Array<TPokemonType>;
 };
 export type RawPokemonList = {
-  pokemon?: Array<TPokemonType>;
+  pokemon: Array<TPokemonType>;
 };
 
 type TPokemonType = {
