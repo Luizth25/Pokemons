@@ -6,6 +6,7 @@ export default createGlobalStyle`
   padding:0;
   box-sizing:border-box;
   list-style: none;
+  font-family: "Roboto", sans-serif
 }
 body{
   background-color:${({ theme }) => theme.colors.background}
