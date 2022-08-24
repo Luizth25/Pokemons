@@ -5,7 +5,9 @@ import { api, searchTypePath } from "services/Api/api";
 
 export default function useGetType() {
   const [pokemonListSearch, setPokemonListSearch] = useState("");
-  const [pokemonList, setPokemonList] = useState<TPokemonList>();
+  const [pokemonList, setPokemonList] = useState<TPokemonList>({
+    pokemons: [],
+  });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const getPokemonList = () => {

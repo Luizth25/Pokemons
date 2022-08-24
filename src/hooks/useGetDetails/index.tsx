@@ -8,7 +8,13 @@ export default function useGetDetails() {
   const params = useParams();
   const paramId = params["id"] as string;
 
-  const [pokemonsDetails, setPokemonsDetails] = useState<TPokemonDetails>();
+  const [pokemonsDetails, setPokemonsDetails] = useState<TPokemonDetails>({
+    id: 0,
+    image: "",
+    moves: [],
+    name: "",
+  });
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {

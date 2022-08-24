@@ -30,11 +30,11 @@ const SearchName = () => {
         ) : (
           <>
             <PokemonInfo
-              image={pokemon?.image ?? ""}
-              id={pokemon?.id ?? 0}
-              name={pokemon?.name ?? ""}
+              image={pokemon.image}
+              id={pokemon.id}
+              name={pokemon.name}
             />
-            {pokemon?.moves.map((e) => (
+            {pokemon.moves.map((e) => (
               <PokemonMoves key={e.move.name} move={e.move.name} />
             ))}
           </>

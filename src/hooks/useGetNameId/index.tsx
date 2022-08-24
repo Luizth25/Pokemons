@@ -5,7 +5,12 @@ import { api, searchNamePath } from "services/Api/api";
 
 export default function useGetNameId() {
   const [pokemonSearch, setPokemonSearch] = useState("");
-  const [pokemon, setPokemon] = useState<TPokemonInfo>();
+  const [pokemon, setPokemon] = useState<TPokemonInfo>({
+    name: "",
+    id: 0,
+    image: "",
+    moves: [],
+  });
 
   const [isLoadign, setIsLoading] = useState<boolean>(false);
 

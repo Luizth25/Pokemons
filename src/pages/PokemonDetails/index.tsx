@@ -17,9 +17,9 @@ const PokemonDetails = () => {
         ) : (
           <>
             <PokemonInfo
-              name={pokemonsDetails?.name ?? ""}
-              id={pokemonsDetails?.id ?? 0}
-              image={pokemonsDetails?.image ?? ""}
+              name={pokemonsDetails.name}
+              id={pokemonsDetails.id}
+              image={pokemonsDetails.image}
             />
             {pokemonsDetails?.moves.map((e) => (
               <PokemonMoves key={e.move.name} move={e.move.name} />
