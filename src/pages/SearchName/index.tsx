@@ -2,17 +2,18 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import { SearchContainer, SearchContainer2 } from "./style";
-import { RawPokemon, TPokemonInfoProps } from "./type";
+import { RawPokemon, TPokemonInfo } from "./type";
 
 import NavButton from "components/NavButton";
 import PokemonSearch from "components/PokemonSearch";
 import PokemonMoves from "components/PokemonMoves";
 import PokemonInfo from "components/PokemonInfo";
 import { api, searchNamePath } from "services/Api/api";
+import PageTitle from "components/PageTitle";
 
 const SearchName = () => {
   const [pokemonSearch, setPokemonSearch] = useState("");
-  const [pokemon, setPokemon] = useState<TPokemonInfoProps>();
+  const [pokemon, setPokemon] = useState<TPokemonInfo>();
 
   const getPokemon = () => {
     api
@@ -34,7 +35,7 @@ const SearchName = () => {
         <NavButton title="Home" />
       </Link>
       <SearchContainer>
-        <h3> Enter pokemon name or ID</h3>
+        <PageTitle title="Enter pokemon name or ID" />
         <PokemonSearch
           onClick={getPokemon}
           title="Search"

@@ -1,4 +1,4 @@
-export type TPokemonInfoProps = {
+export type TPokemonInfo = {
   name: string;
   id: number;
   image: string;

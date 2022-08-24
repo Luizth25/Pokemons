@@ -11,7 +11,7 @@ const Routes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/search-name" element={<SearchName />} />
       <Route path="/search-type" element={<SearchType />} />
-      <Route path="/pokemon-details" element={<PokemonDetails />} />
+      <Route path="/pokemon-details/:id" element={<PokemonDetails />} />
     </RouteRRD>
   );
 };
