@@ -1,4 +1,5 @@
 import TPokemonSearchProps from "components/PokemonSearch/type";
+
 import * as s from "./style";
 
 const PokemonSearch = ({

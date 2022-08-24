@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import NavButton from "components/NavButton";
 import PokemonItemList from "components/PokemonListItem";
 import PokemonList from "components/PokemonListItem/PokemonList";

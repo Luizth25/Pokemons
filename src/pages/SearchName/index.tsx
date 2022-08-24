@@ -1,35 +1,15 @@
-import { useState } from "react";
-
 import { NameIdContainer } from "./style";
-import { RawPokemon, TPokemonInfo } from "./type";
 
 import NavButton from "components/NavButton";
 import PokemonSearch from "components/PokemonSearch";
 import PokemonMoves from "components/PokemonMoves";
 import PokemonInfo from "components/PokemonInfo";
-import { api, searchNamePath } from "services/Api/api";
 import SearchContainer from "components/SearchContainer";
+import useGetNameId from "hooks/useGetNameId";
 
 const SearchName = () => {
-  const [pokemonSearch, setPokemonSearch] = useState("");
-  const [pokemon, setPokemon] = useState<TPokemonInfo>();
-  const [isLoadign, setIsLoading] = useState<boolean>(false);
-
-  const getPokemon = () => {
-    setIsLoading(true);
-    api
-      .get<RawPokemon>(`${searchNamePath}/${pokemonSearch}`)
-      .then((response) => {
-        setPokemon({
-          id: response.data.id,
-          name: response.data.name,
-          image: response.data.sprites.front_default,
-          moves: response.data.moves.slice(0, 5),
-        });
-      })
-      .catch((err) => err)
-      .finally(() => setIsLoading(true));
-  };
+  const { pokemon, setPokemonSearch, pokemonSearch, getPokemon } =
+    useGetNameId();
 
   return (
     <>
@@ -61,4 +41,5 @@ const SearchName = () => {
     </>
   );
 };
+
 export default SearchName;

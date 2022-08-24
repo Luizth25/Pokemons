@@ -1,30 +1,19 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import NavButton from "components/NavButton";
 import PokemonSearch from "components/PokemonSearch";
-import { RawPokemonList, TPokemonList } from "pages/SearchType/type";
-import { api, searchTypePath } from "services/Api/api";
 import SearchContainer from "components/SearchContainer";
 import { TypeContainer } from "pages/SearchType/style";
+import useGetType from "hooks/useGetType";
 
 const SearchType = () => {
-  const [pokemonListSearch, setPokemonListSearch] = useState("");
-  const [pokemonList, setPokemonList] = useState<TPokemonList>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const getPokemonList = () => {
-    setIsLoading(true);
-    api
-      .get<RawPokemonList>(`${searchTypePath}/${pokemonListSearch}`)
-      .then((response) => {
-        setPokemonList({
-          pokemons: response.data.pokemon,
-        });
-      })
-      .catch((err) => err)
-      .finally(() => setIsLoading(false));
-  };
+  const {
+    setPokemonListSearch,
+    getPokemonList,
+    isLoading,
+    pokemonList,
+    pokemonListSearch,
+  } = useGetType();
 
   return (
     <>

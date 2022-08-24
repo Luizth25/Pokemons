@@ -1,4 +1,5 @@
 import { TBuscaProps } from "./type";
+
 const PokemonInfo = ({ id, image, name }: TBuscaProps) => (
   <>
     <h2>{name}</h2>
@@ -6,4 +7,5 @@ const PokemonInfo = ({ id, image, name }: TBuscaProps) => (
     <img src={image} alt={name} />
   </>
 );
+
 export default PokemonInfo;

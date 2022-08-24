@@ -1,5 +1,5 @@
-import TPokemonItemListProps from "./type";
 import { Title } from "./style";
+import TPokemonItemListProps from "./type";
 
 const PokemonItemList = ({ title, children }: TPokemonItemListProps) => (
   <>

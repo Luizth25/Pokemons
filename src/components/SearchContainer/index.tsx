@@ -1,4 +1,5 @@
 import TSearchContainerProps from "components/SearchContainer/type";
+
 import { Container } from "./style";
 
 const SearchContainer = ({ title, children }: TSearchContainerProps) => (
