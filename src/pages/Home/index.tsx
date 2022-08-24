@@ -71,12 +71,8 @@ const Home = () => (
       </PokemonList>
     </PokemonItemList>
     <s.NavContainer>
-      <Link to="/search-name">
-        <NavButton title="Search for Name" />
-      </Link>
-      <Link to="/search-type">
-        <NavButton title="Search for Type" />
-      </Link>
+      <NavButton title="Search for Name" link="/search-name" />
+      <NavButton title="Search for Type" link="/search-type" />
     </s.NavContainer>
   </>
 );

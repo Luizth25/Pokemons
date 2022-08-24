@@ -1,7 +1,8 @@
-type TButtonProps = {
+type TPokemonSearchProps = {
   title: string;
   onClick: () => void;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
-export default TButtonProps;
+
+export default TPokemonSearchProps;
