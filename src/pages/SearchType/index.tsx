@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
-import NavButton from "components/NavButton";
 import { useState } from "react";
-import { api, searchTypePath } from "services/Api/api";
-import { RawPokemonList, TPokemonList } from "pages/SearchType/type";
+import { Link } from "react-router-dom";
+
+import NavButton from "components/NavButton";
+import PageTitle from "components/PageTitle";
 import PokemonSearch from "components/PokemonSearch";
 import { SearchContainer, SearchContainer2 } from "pages/SearchName/style";
-import PageTitle from "components/PageTitle";
+import { RawPokemonList, TPokemonList } from "pages/SearchType/type";
+import { api, searchTypePath } from "services/Api/api";
 
 const SearchType = () => {
   const [pokemonListSearch, setPokemonListSearch] = useState("");
@@ -52,4 +53,5 @@ const SearchType = () => {
     </>
   );
 };
+
 export default SearchType;
