@@ -8,7 +8,7 @@ import SearchContainer from "components/SearchContainer";
 import useGetNameId from "hooks/useGetNameId";
 
 const SearchName = () => {
-  const { pokemon, setPokemonSearch, pokemonSearch, getPokemon } =
+  const { pokemon, setPokemonSearch, pokemonSearch, getPokemon, isLoadign } =
     useGetNameId();
 
   return (
@@ -25,7 +25,9 @@ const SearchName = () => {
       </SearchContainer>
 
       <NameIdContainer>
-        {pokemon ? (
+        {isLoadign ? (
+          <p>Loading...</p>
+        ) : (
           <>
             <PokemonInfo
               image={pokemon?.image ?? ""}
@@ -36,7 +38,7 @@ const SearchName = () => {
               <PokemonMoves key={e.move.name} move={e.move.name} />
             ))}
           </>
-        ) : null}
+        )}
       </NameIdContainer>
     </>
   );
