@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { RawPokemonList, TPokemonList } from "hooks/useGetType/type";
-import { api, searchTypePath } from "services/Api/api";
+import { api } from "api";
 
 export default function useGetType() {
   const [pokemonListSearch, setPokemonListSearch] = useState("");
@@ -13,7 +13,7 @@ export default function useGetType() {
   const getPokemonList = () => {
     setIsLoading(true);
     api
-      .get<RawPokemonList>(`${searchTypePath}/${pokemonListSearch}`)
+      .get<RawPokemonList>(`/type/${pokemonListSearch}`)
       .then((response) => {
         setPokemonList({
           pokemons: response.data.pokemon,

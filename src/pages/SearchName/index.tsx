@@ -5,11 +5,33 @@ import PokemonSearch from "components/PokemonSearch";
 import PokemonMoves from "components/PokemonMoves";
 import PokemonInfo from "components/PokemonInfo";
 import SearchContainer from "components/SearchContainer";
-import useGetNameId from "hooks/useGetNameId";
+import useGetPokemonInfo from "hooks/useGetPokemonInfo";
+import { useState } from "react";
 
 const SearchName = () => {
-  const { pokemon, setPokemonSearch, pokemonSearch, getPokemon, isLoadign } =
-    useGetNameId();
+  const [pokemonNameOrId, setPokemonNameOrId] = useState<string>("");
+  const { pokemon, getPokemon, isLoading } = useGetPokemonInfo();
+
+  const getContent = () => {
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
+
+    if (!isLoading && pokemon) {
+      <>
+        <PokemonInfo
+          image={pokemon.image}
+          id={pokemon.id}
+          name={pokemon.name}
+        />
+        {pokemon.moves.map((moveName) => (
+          <PokemonMoves key={moveName} move={moveName} />
+        ))}
+      </>;
+    }
+
+    return null;
+  };
 
   return (
     <>
@@ -17,29 +39,14 @@ const SearchName = () => {
 
       <SearchContainer title="Enter pokemon name or ID">
         <PokemonSearch
-          onClick={getPokemon}
+          onClick={() => getPokemon(pokemonNameOrId)}
           title="Search"
-          value={pokemonSearch}
-          onChange={(e) => setPokemonSearch(e.target.value)}
+          value={pokemonNameOrId}
+          onChange={({ target: { value } }) => setPokemonNameOrId(value)}
         />
       </SearchContainer>
 
-      <NameIdContainer>
-        {isLoadign ? (
-          <p>Loading...</p>
-        ) : (
-          <>
-            <PokemonInfo
-              image={pokemon.image}
-              id={pokemon.id}
-              name={pokemon.name}
-            />
-            {pokemon.moves.map((e) => (
-              <PokemonMoves key={e.move.name} move={e.move.name} />
-            ))}
-          </>
-        )}
-      </NameIdContainer>
+      <NameIdContainer>{getContent()}</NameIdContainer>
     </>
   );
 };

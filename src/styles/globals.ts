@@ -8,11 +8,12 @@ export default createGlobalStyle`
   list-style: none;
   font-family: "Roboto", sans-serif
 }
+
 body{
-  background-color:${({ theme }) => theme.colors.background}
-}
-h2 , h3 {
-  ${({ theme }) => theme.fontStyles.pokemonInfo}
+  background-color:${({ theme }) => theme.colors.background};
 }
 
+h2 , h3 {
+  ${({ theme }) => theme.fontStyles.pokemonInfo};
+}
 `;
