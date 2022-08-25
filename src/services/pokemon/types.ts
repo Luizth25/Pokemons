@@ -1,17 +1,10 @@
-export type TPokemonInfo = {
-  name: string;
-  id: number;
-  image: string;
-  moves: Array<TMovePokemon>;
-};
-
-export type TMovePokemon = {
+export type TMovePokemonRaw = {
   move: {
     name: string;
   };
 };
 
-export type RawPokemon = {
+export type TPokemonRaw = {
   name: string;
   id: number;
   sprites: {
@@ -25,5 +18,12 @@ export type RawPokemon = {
       };
     };
   };
-  moves: Array<TMovePokemon>;
+  moves: Array<TMovePokemonRaw>;
+};
+
+export type TPokemonInfo = {
+  name: string;
+  id: number;
+  image: string;
+  moves: Array<string>;
 };
